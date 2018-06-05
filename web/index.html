@@ -31,7 +31,7 @@
 	<!-- start-smooth-scrolling -->
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
+			$(".scroll").click(function(event){
 				event.preventDefault();
 				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 			});
@@ -41,9 +41,13 @@
 	<!-- for bootstrap working -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 	<!-- //for bootstrap working -->
-</head> 
+	<!-- select2 -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+	<!-- //select2 -->
+</head>
 <body>
-	
+
 	<!-- header modal -->
 	<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLogin"
 		aria-hidden="true">
@@ -55,7 +59,7 @@
 				<div class="modal-body modal-body-sub">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-							<div class="sap_tabs">	
+							<div class="sap_tabs">
 								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 									<ul>
 										<li class="resp-tab-item" aria-controls="tab_item-0"><span>Inicio Sesión</span></li>
@@ -65,24 +69,24 @@
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 										<div class="facts">
 											<div class="register">
-												<form action="#" method="post">			
-													<input name="Email" placeholder="Correo Electronico" type="text" required="">						
-													<input name="Password" placeholder="Contraseña" type="password" required="">										
+												<form action="#" method="post">
+													<input name="Email" placeholder="Correo Electronico" type="text" required="">
+													<input name="Password" placeholder="Contraseña" type="password" required="">
 													<div class="sign-up">
 														<input type="submit" value="Iniciar Sesión"/>
 													</div>
 												</form>
 											</div>
-										</div> 
+										</div>
 									</div>
 									 <!-- register -->
 									<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
 										<div class="facts">
 											<div class="register">
-												<form action="#" method="post">			
+												<form action="#" method="post">
 													<input placeholder="Nombre y Apellido" name="Name" type="text" required="">
-													<input placeholder="Correo Electronico" name="Email" type="email" required="">	
-													<input placeholder="Contraseña" name="Password" type="password" required="">	
+													<input placeholder="Correo Electronico" name="Email" type="email" required="">
+													<input placeholder="Contraseña" name="Password" type="password" required="">
 													<input placeholder="Confirmar Contraseña" name="Password" type="password" required="">
 													<div class="sign-up">
 														<input type="submit" value="Registrase"/>
@@ -90,8 +94,8 @@
 												</form>
 											</div>
 										</div>
-									</div> 			        					            	      
-								</div>	
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -100,6 +104,139 @@
 		</div>
 	</div>
 	<!-- header modal -->
+
+	<!-- header modal - request -->
+	<div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequest"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="fa fa-times close" data-dismiss="modal" aria-hidden="true"></button>
+				</div>
+				<div class="modal-body modal-body-sub">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<div class="sap_tabs">
+								<div style="display: block; width: 100%; margin: 0px;">
+
+									<!-- form request -->
+									<div class="col-md-12">
+										<div class="facts">
+											<div class="register">
+												<div class="row">
+													<div class="col-md-12 text-center">
+														<h1 class="title" style="margin-top: 0em !important;">Solicitud</h1>
+													</div>
+												</div>
+												<div class="bs-example bs-example-tabs w3" role="tabpanel" data-example-id="togglable-tabs-1">
+													<ul class="nav nav-tabs" role="tablist">
+														<li role="presentation" class="active">
+															<a href="#personal" id="personal-tab" role="tab" data-toggle="tab" aria-controls="personal" aria-expanded="true">Datos Personales</a>
+														</li>
+														<li role="presentation" class="">
+															<a href="#request" role="tab" id="request-tab" data-toggle="tab" aria-controls="request">Datos Solicitud</a>
+														</li>
+													</ul>
+													<form action="#" method="post">
+														<div class="tab-content">
+															<!-- Datos  Personales -->
+															<div role="tabpanel" class="tab-pane fade active in" id="personal" aria-labelledby="personal-tab">
+																<div class="row margin">
+																	<div class="col-md-6">
+																		<label for="name">Nombre y Apellido</label>
+																		<input name="name" placeholder="" type="text" required>
+																	</div>
+																	<div class="col-md-6">
+																		<label for="rut">RUT</label>
+																		<input name="rut" placeholder="" type="text" required>
+																	</div>
+																</div>
+																<div class="row margin">
+																	<div class="col-md-6">
+																		<label for="email">Correo Electronico</label>
+																		<input name="email" placeholder="" type="text" required>
+																	</div>
+																	<div class="col-md-6">
+																		<label for="phone">Teléfono</label>
+																		<input name="phone" placeholder="" type="text" required>
+																	</div>
+																</div>
+																<div class="row magin">
+																	<div class="col-md-4">
+																		<label for="city">Comuna</label>
+																		<select name="city" id="city" class="form-control1">
+																			<option>Option 1</option>
+																			<option>Option 2</option>
+																			<option>Option 3</option>
+																		</select>
+																	</div>
+																	<div class="col-md-4">
+																		<label for="city">Ciudad</label>
+																		<select name="city" id="city" class="form-control1">
+																			<option>Option 1</option>
+																			<option>Option 2</option>
+																			<option>Option 3</option>
+																		</select>
+																	</div>
+																	<div class="col-md-4">
+																		<label for="region">Región</label>
+																		<select name="region" class="form-control1">
+																			<option>Option 1</option>
+																			<option>Option 2</option>
+																			<option>Option 3</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="row margin">
+																	<div class="col-md-12">
+																		<label for="address">Dirección</label>
+																		<input name="address" placeholder="" type="text" required>
+																	</div>
+																</div>
+															</div>
+															<!-- Datos Solicitud -->
+															<div role="tabpanel" class="tab-pane fade" id="request" aria-labelledby="request-tab">
+																<div class="row margin">
+																	<div class="col-md-6">
+																		<label for="type">Tipo Certificado</label>
+																		<select name="type" id="type" class="form-control1">
+																			<option>Option 1</option>
+																			<option>Option 2</option>
+																			<option>Option 3</option>
+																		</select>
+																	</div>
+																	<div class="col-md-6">
+																		<label for="date">Fecha Ingreso</label>
+																		<input name="date" placeholder="" type="text" required>
+																	</div>
+																</div>
+																<div class="row margin">
+																	<div class="col-md-12">
+																		<label for="comment">Comentario</label>
+																		<textarea placeholder="" name="comment" id="comment" rows="3" style="width: 100%;"></textarea>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</form>
+												</div>
+												<div class="sign-up text-center">
+													<input type="submit" value="Enviar Solicitud"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- form request -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header modal - request -->
 
 	<!-- header -->
 	<div class="header" id="home1">
@@ -114,13 +251,13 @@
 					</a>
 				</h1>
 			</div>
-			<div class="cart cart box_1"> 
-				<form action="#" method="post" class="last"> 
+			<div class="cart cart box_1">
+				<form action="#" method="post" class="last">
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="display" value="1" />
 					<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-				</form>   
-			</div>  
+				</form>
+			</div>
 		</div>
 	</div>
 	<!-- //header -->
@@ -141,7 +278,7 @@
 				<!-- menu menu in desktop -->
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html" class="act">Inicio</a></li>	
+						<li><a href="index.html" class="act">Inicio</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-3">
@@ -150,7 +287,7 @@
 										<ul class="multi-column-dropdown">
 											<h6>Asesoria</h6>
 											<li><a href=""></a></li>
-											<li><a href="">asesoria 1</a></li> 
+											<li><a href="">asesoria 1</a></li>
 											<li><a href="">asesoria 2</a></li>
 											<li><a href="">asesoria 3</a></li>
 										</ul>
@@ -160,7 +297,7 @@
 											<h6>Firmas Simples</h6>
 											<li><a href="">simple 1</a></li>
 											<li><a href="">simple 2</a></li>
-											<li><a href="">simple 3</a></li>											
+											<li><a href="">simple 3</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-4">
@@ -168,19 +305,19 @@
 											<h6>Firmas Avanzadas</h6>
 											<li><a href="">Firma 1</a></li>
 											<li><a href="">Firma 2</a></li>
-											<li><a href="">Firma 3</a></li>											
+											<li><a href="">Firma 3</a></li>
 										</ul>
 									</div>
 								</div>
 							</ul>
 						</li>
-						<li><a href="">Nosotros</a></li> 
+						<li><a href="">Nosotros</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Paginas <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column-dropdown columns-1">
 								<li><a href="#">Pagina 1</a></li>
 								<li><a href="#">Pagina 2</a></li>
-								<li><a href="#">Pagina 3</a></li>  
+								<li><a href="#">Pagina 3</a></li>
 							</ul>
 						</li>
 						<li><a href="">Contacto</a></li>
@@ -207,8 +344,8 @@
 					<a class="play-icon popup-with-zoom-anim" href="#small-dialog">
 						<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
 					</a>
-				</div> 
-					<!-- pop-up-box -->     
+				</div>
+					<!-- pop-up-box -->
 					<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 					<!--//pop-up-box -->
 					<div id="small-dialog" class="mfp-hide">
@@ -227,7 +364,7 @@
 							removalDelay: 300,
 							mainClass: 'my-mfp-zoom-in'
 						});
-																						
+
 						});
 					</script>
 			</div>
@@ -260,17 +397,17 @@
 												</li>
 											</ul>
 										</div>
-									</div> 
+									</div>
 									<h5><a href="single.html">Mobile Phone1</a></h5>
 									<div class="simpleCart_shelfItem">
 										<p><span>$380</span> <i class="item_price">$350</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Mobile Phone1" /> 
-											<input type="hidden" name="amount" value="350.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Mobile Phone1" />
+											<input type="hidden" name="amount" value="350.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
-										</form>  
+										</form>
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
@@ -296,9 +433,9 @@
 										<p><span>$330</span> <i class="item_price">$302</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Mobile Phone2" /> 
-											<input type="hidden" name="amount" value="302.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Mobile Phone2" />
+											<input type="hidden" name="amount" value="302.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -326,9 +463,9 @@
 										<p><span>$250</span> <i class="item_price">$245</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Mobile Phone3" /> 
-											<input type="hidden" name="amount" value="245.00"/>   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Mobile Phone3" />
+											<input type="hidden" name="amount" value="245.00"/>
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -361,9 +498,9 @@
 									<div class="simpleCart_shelfItem">
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Speakers" /> 
-											<input type="hidden" name="amount" value="250.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Speakers" />
+											<input type="hidden" name="amount" value="250.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -391,9 +528,9 @@
 										<p><span>$180</span> <i class="item_price">$150</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Headphones" /> 
-											<input type="hidden" name="amount" value="150.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Headphones" />
+											<input type="hidden" name="amount" value="150.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -421,9 +558,9 @@
 										<p><span>$220</span> <i class="item_price">$180</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Audio Player" /> 
-											<input type="hidden" name="amount" value="180.00"/>   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Audio Player" />
+											<input type="hidden" name="amount" value="180.00"/>
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -456,9 +593,9 @@
 										<p><span>$880</span> <i class="item_price">$850</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Laptop" /> 
-											<input type="hidden" name="amount" value="850.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Laptop" />
+											<input type="hidden" name="amount" value="850.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -486,9 +623,9 @@
 										<p><span>$290</span> <i class="item_price">$280</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Notebook" /> 
-											<input type="hidden" name="amount" value="280.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Notebook" />
+											<input type="hidden" name="amount" value="280.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -516,9 +653,9 @@
 										<p><span>$120</span> <i class="item_price">$80</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Kid's Toy" /> 
-											<input type="hidden" name="amount" value="80.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Kid's Toy" />
+											<input type="hidden" name="amount" value="80.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -551,9 +688,9 @@
 										<p><span>$950</span> <i class="item_price">$820</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Refrigerator" /> 
-											<input type="hidden" name="amount" value="820.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Refrigerator" />
+											<input type="hidden" name="amount" value="820.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -581,9 +718,9 @@
 										<p><span>$700</span> <i class="item_price">$680</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="LED Tv"/> 
-											<input type="hidden" name="amount" value="680.00"/>   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="LED Tv"/>
+											<input type="hidden" name="amount" value="680.00"/>
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -611,9 +748,9 @@
 										<p><span>$520</span> <i class="item_price">$510</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Washing Machine" /> 
-											<input type="hidden" name="amount" value="510.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Washing Machine" />
+											<input type="hidden" name="amount" value="510.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -646,9 +783,9 @@
 										<p><span>$460</span> <i class="item_price">$450</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Grinder" /> 
-											<input type="hidden" name="amount" value="450.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Grinder" />
+											<input type="hidden" name="amount" value="450.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -676,9 +813,9 @@
 										<p><span>$390</span> <i class="item_price">$350</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Water Purifier" /> 
-											<input type="hidden" name="amount" value="350.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Water Purifier" />
+											<input type="hidden" name="amount" value="350.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -706,9 +843,9 @@
 										<p><span>$250</span> <i class="item_price">$220</i></p>
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" /> 
-											<input type="hidden" name="w3ls_item" value="Coffee Maker" /> 
-											<input type="hidden" name="amount" value="220.00" />   
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="w3ls_item" value="Coffee Maker" />
+											<input type="hidden" name="amount" value="220.00" />
 											<button type="submit" class="w3ls-cart">Add to cart</button>
 										</form>
 									</div>
@@ -717,7 +854,7 @@
 							</div>
 						</div>
 					</div>
-				</div> 
+				</div>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -760,11 +897,14 @@
 						</div>
 						<div class="w3agile_special_deals_grid_left_grid_pos">
 							<h4>Nuestros <span>Mejores Servicios</span></h4>
+							<div class="col-md-12 text-right">
+									<button type="button" class="btn-request" data-toggle="modal" data-target="#modalRequest">Realizar solicitud</button>
+							</div>
 						</div>
 					</div>
 					<div class="wmuSlider example1">
 						<div class="wmuSliderWrapper">
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="images/t1.png" alt=" " class="img-responsive" />
@@ -773,7 +913,7 @@
 									</div>
 								</div>
 							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="images/t2.png" alt=" " class="img-responsive" />
@@ -782,7 +922,7 @@
 									</div>
 								</div>
 							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="images/t3.png" alt=" " class="img-responsive" />
@@ -793,10 +933,10 @@
 							</article>
 						</div>
 					</div>
-					<script src="js/jquery.wmuSlider.js"></script> 
+					<script src="js/jquery.wmuSlider.js"></script>
 					<script>
-						$('.example1').wmuSlider();         
-					</script> 
+						$('.example1').wmuSlider();
+					</script>
 				</div>
 				<div class="col-md-5 w3agile_special_deals_grid_right">
 					<img src="images/a20.jpg" alt=" " class="img-responsive" />
@@ -823,7 +963,7 @@
 							<img src="images/23.jpg" alt=" " class="img-responsive" />
 							<img src="images/24.jpg" alt=" " class="img-responsive" />
 							<img src="images/22.jpg" alt=" " class="img-responsive" />
-							<img src="images/26.jpg" alt=" " class="img-responsive" /> 
+							<img src="images/26.jpg" alt=" " class="img-responsive" />
 							<div class="w3_hs_bottom w3_hs_bottom_sub">
 								<ul>
 									<li>
@@ -837,9 +977,9 @@
 							<p><span>$520</span> <i class="item_price">$500</i></p>
 							<form action="#" method="post">
 								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1"> 
-								<input type="hidden" name="w3ls_item" value="Red Laptop"> 
-								<input type="hidden" name="amount" value="500.00">   
+								<input type="hidden" name="add" value="1">
+								<input type="hidden" name="w3ls_item" value="Red Laptop">
+								<input type="hidden" name="amount" value="500.00">
 								<button type="submit" class="w3ls-cart">Add to cart</button>
 							</form>
 						</div>
@@ -852,7 +992,7 @@
 							<img src="images/28.jpg" alt=" " class="img-responsive" />
 							<img src="images/29.jpg" alt=" " class="img-responsive" />
 							<img src="images/30.jpg" alt=" " class="img-responsive" />
-							<img src="images/31.jpg" alt=" " class="img-responsive" /> 
+							<img src="images/31.jpg" alt=" " class="img-responsive" />
 							<div class="w3_hs_bottom w3_hs_bottom_sub">
 								<ul>
 									<li>
@@ -866,9 +1006,9 @@
 							<p><span>$380</span> <i class="item_price">$370</i></p>
 							<form action="#" method="post">
 								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1"> 
-								<input type="hidden" name="w3ls_item" value="Black Phone"> 
-								<input type="hidden" name="amount" value="370.00">   
+								<input type="hidden" name="add" value="1">
+								<input type="hidden" name="w3ls_item" value="Black Phone">
+								<input type="hidden" name="amount" value="370.00">
 								<button type="submit" class="w3ls-cart">Add to cart</button>
 							</form>
 						</div>
@@ -881,7 +1021,7 @@
 							<img src="images/33.jpg" alt=" " class="img-responsive" />
 							<img src="images/32.jpg" alt=" " class="img-responsive" />
 							<img src="images/35.jpg" alt=" " class="img-responsive" />
-							<img src="images/36.jpg" alt=" " class="img-responsive" /> 
+							<img src="images/36.jpg" alt=" " class="img-responsive" />
 							<div class="w3_hs_bottom w3_hs_bottom_sub">
 								<ul>
 									<li>
@@ -895,12 +1035,12 @@
 							<p><span>$150</span> <i class="item_price">$100</i></p>
 							<form action="#" method="post">
 								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1"> 
-								<input type="hidden" name="w3ls_item" value="Kids Toy"> 
-								<input type="hidden" name="amount" value="100.00">   
+								<input type="hidden" name="add" value="1">
+								<input type="hidden" name="w3ls_item" value="Kids Toy">
+								<input type="hidden" name="amount" value="100.00">
 								<button type="submit" class="w3ls-cart">Add to cart</button>
 							</form>
-						</div>  
+						</div>
 					</div>
 				</div>
 				<div class="col-md-3 agileinfo_new_products_grid">
@@ -910,7 +1050,7 @@
 							<img src="images/38.jpg" alt=" " class="img-responsive" />
 							<img src="images/39.jpg" alt=" " class="img-responsive" />
 							<img src="images/40.jpg" alt=" " class="img-responsive" />
-							<img src="images/41.jpg" alt=" " class="img-responsive" /> 
+							<img src="images/41.jpg" alt=" " class="img-responsive" />
 							<div class="w3_hs_bottom w3_hs_bottom_sub">
 								<ul>
 									<li>
@@ -924,9 +1064,9 @@
 							<p><span>$280</span> <i class="item_price">$250</i></p>
 							<form action="#" method="post">
 								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1"> 
-								<input type="hidden" name="w3ls_item" value="Induction Stove"> 
-								<input type="hidden" name="amount" value="250.00">   
+								<input type="hidden" name="add" value="1">
+								<input type="hidden" name="w3ls_item" value="Induction Stove">
+								<input type="hidden" name="amount" value="250.00">
 								<button type="submit" class="w3ls-cart">Add to cart</button>
 							</form>
 						</div>
@@ -943,7 +1083,7 @@
 		<div class="container">
 			<h3>Nuestros Clientes</h3>
 			<div class="sliderfig">
-				<ul id="flexiselDemo1">			
+				<ul id="flexiselDemo1">
 					<li>
 						<img src="images/tb1.jpg" alt=" " class="img-responsive" />
 					</li>
@@ -967,25 +1107,25 @@
 							visibleItems: 4,
 							animationSpeed: 1000,
 							autoPlay: true,
-							autoPlaySpeed: 3000,    		
+							autoPlaySpeed: 3000,
 							pauseOnHover: true,
 							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
+							responsiveBreakpoints: {
+								portrait: {
 									changePoint:480,
 									visibleItems: 1
-								}, 
-								landscape: { 
+								},
+								landscape: {
 									changePoint:640,
 									visibleItems:2
 								},
-								tablet: { 
+								tablet: {
 									changePoint:768,
 									visibleItems: 3
 								}
 							}
 						});
-						
+
 					});
 			</script>
 			<script type="text/javascript" src="js/jquery.flexisel.js"></script>
@@ -1026,7 +1166,7 @@
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Información</h3>
-					<ul class="info"> 
+					<ul class="info">
 						<li><a href="">Acerca de Nosotros</a></li>
 						<li><a href="">Contactenos</a></li>
 						<li><a href="">Preguntas Frecuentes</a></li>
@@ -1035,7 +1175,7 @@
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Categorias</h3>
-					<ul class="info"> 
+					<ul class="info">
 						<li><a href="">Item 1</a></li>
 						<li><a href="">Item 2</a></li>
 						<li><a href="">Item 3</a></li>
@@ -1044,7 +1184,7 @@
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Paginas</h3>
-					<ul class="info"> 
+					<ul class="info">
 						<li><a href="index.html">Home</a></li>
 						<!-- <li><a href="products.html">Today's Deals</a></li> -->
 					</ul>
@@ -1074,18 +1214,21 @@
 	</div>
 	<!-- //footer -->
 
-	<!-- Tabs Modals Login && Registro -->
+	<!-- Script -->
 	<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			// Tabs Modals Login && Registro
 			$('#horizontalTab').easyResponsiveTabs({
-				type: 'default', //Types: default, vertical, accordion           
+				type: 'default', //Types: default, vertical, accordion
 				width: 'auto', //auto or any width like 600px
 				fit: true   // 100% fit in a container
 			});
+
+
 		});
 	</script>
-	<!-- // Tabs Modals Login && Registro -->
+	<!-- // Script-->
 
 	<!-- cart-js -->
 	<script src="js/minicart.js"></script>
@@ -1095,11 +1238,14 @@
 			var items, len, i;
 			if (this.subtotal() > 0) {
 				items = this.items();
-				for (i = 0, len = items.length; i < len; i++) { 
+				for (i = 0, len = items.length; i < len; i++) {
 				}
 			}
 		});
-	</script>  
-	<!-- //cart-js -->   
+	</script>
+	<!-- //cart-js -->
+
+
+
 </body>
 </html>
