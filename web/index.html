@@ -60,39 +60,29 @@
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<div class="sap_tabs">
-								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-									<ul>
-										<li class="resp-tab-item" aria-controls="tab_item-0"><span>Inicio Sesión</span></li>
-										<li class="resp-tab-item" aria-controls="tab_item-1"><span>Registro</span></li>
-									</ul>
-									<!-- login -->
-									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-										<div class="facts">
-											<div class="register">
-												<form action="#" method="post">
-													<input name="Email" placeholder="Correo Electronico" type="text" required="">
-													<input name="Password" placeholder="Contraseña" type="password" required="">
-													<div class="sign-up">
-														<input type="submit" value="Iniciar Sesión"/>
-													</div>
-												</form>
-											</div>
-										</div>
+								<div class="row">
+									<div class="col-md-12">
+										<h1 class="title">Inicio Sesión</h1>
 									</div>
-									 <!-- register -->
-									<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-										<div class="facts">
-											<div class="register">
-												<form action="#" method="post">
-													<input placeholder="Nombre y Apellido" name="Name" type="text" required="">
-													<input placeholder="Correo Electronico" name="Email" type="email" required="">
-													<input placeholder="Contraseña" name="Password" type="password" required="">
-													<input placeholder="Confirmar Contraseña" name="Password" type="password" required="">
-													<div class="sign-up">
-														<input type="submit" value="Registrase"/>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="register">
+											<form action="#" method="post">
+												<div class="row">
+													<div class="col-md-12">
+														<label for="email">Correo Electronico</label>
+														<input name="email" type="email" required/>
 													</div>
-												</form>
-											</div>
+													<div class="col-md-12 margin">
+														<label for="password">Contraseña</label>
+														<input name="password" type="password" required/>
+													</div>
+												</div>
+												<div class="sign-up text-center">
+													<input type="submit" value="Entrar"/>
+												</div>
+											</form>
 										</div>
 									</div>
 								</div>
@@ -242,7 +232,9 @@
 	<div class="header" id="home1">
 		<div class="container">
 			<div class="w3l_login">
-				<a href="#" data-toggle="modal" data-target="#modalLogin"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<button class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				</button>
 			</div>
 			<div class="w3l_logo">
 				<h1>
@@ -1244,8 +1236,6 @@
 		});
 	</script>
 	<!-- //cart-js -->
-
-
 
 </body>
 </html>
