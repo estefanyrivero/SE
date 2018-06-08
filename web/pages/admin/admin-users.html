@@ -11,38 +11,108 @@
 		function hideURLbar(){ window.scrollTo(0,1); }
 	</script>
 	<!-- //for-mobile-apps -->
-	<!-- Custom Theme files -->
+	<!-- custom css files -->
 	<link href="../../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="../../css/style.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="../../css/fasthover.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="../../css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
-	<!-- //Custom Theme files -->
-	<!-- font-awesome icons -->
-	<link href="../../css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome icons -->
-	<!-- js -->
-	<script src="../../js/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/jquery.countdown.css" />
-	<!-- //js -->
+	<link href="../../css/font-awesome.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="../../css/jquery.countdown.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="../../css/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
+	<!-- //custom css files -->
 	<!-- web fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'/>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'/>
 	<!-- //web fonts -->
-	<!-- start-smooth-scrolling -->
-	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-			});
-		});
-	</script>
-	<!-- //end-smooth-scrolling -->
-	<!-- for bootstrap working -->
-	<script type="text/javascript" src="../../js/bootstrap-3.1.1.min.js"></script>
-	<!-- //for bootstrap working -->
+
 </head> 
 <body>
+
+	<!-- modal users -->
+	<div class="modal fade" id="modalUser" tabindex="-1" role="dialog" aria-labelledby="modalUser"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="fa fa-times close" data-dismiss="modal" aria-hidden="true"></button>
+				</div>
+				<div class="modal-body modal-body-sub">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<div class="sap_tabs">
+								<div style="display: block; width: 100%; margin: 0px;">
+									<!-- form users -->
+										<div class="facts">
+											<div class="register">
+												<form action="#" method="post">
+													<div class="row">
+														<div class="col-md-12 text-center">
+															<h1 class="title" style="margin-top: 0em !important;">Creación de Usuario</h1>
+														</div>
+													</div>
+													<div class="row margin">
+														<div class="col-md-6">
+															<label for="user_name">Nombre y Apellido</label>
+															<input name="user_name" type="text" required />
+														</div>
+														<div class="col-md-6">
+															<label for="user_email">Correo Electronico</label>
+															<input name="user_email" type="email" required />
+														</div>
+													</div>
+													<div class="row margin">
+														<div class="col-md-6">
+															<label for="user_password">Contraseña</label>
+															<input name="user_password" type="password" required />
+														</div>
+														<div class="col-md-6">
+															<label for="user_password_conf">Confirmar Contraseña</label>
+															<input name="user_password_conf" type="password" required />
+														</div>
+													</div>
+													<div class="row margin">
+														<div class="col-md-12">
+															<label for="permits">Permisos</label>
+														</div>
+													</div>
+													<div class="row margin">
+														<div class="col-md-4">
+															<input type="checkbox" class="form-check-input" name="permits1">
+															<label class="form-check-label" for="permits1">Permiso 1</label>
+														</div>
+														<div class="col-md-4">
+															<input type="checkbox" class="form-check-input" name="permits2">
+															<label class="form-check-label" for="permits2">Permiso 2</label>
+														</div>
+														<div class="col-md-4">
+															<input type="checkbox" class="form-check-input" name="permits3">
+															<label class="form-check-label" for="permits3">Permiso 3</label>
+														</div>
+													</div>
+													<div class="row margin">
+														<div class="sign-up">
+															<div class="col-md-6 text-right">
+																<button type="submit" class="btn btn-submit">Guardar</button>
+															</div>
+															<div class="col-md-6 text-left">
+																<button data-dismiss="modal" class="btn btn-cancel">Cancel</button>
+															</div>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									<!-- //form users -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //modal users -->
+
 	<!-- navegation login -->
 	<div class="breadcrumb_dress">
 		<div class="container">
@@ -62,9 +132,6 @@
 	<!-- header -->
 	<div class="header" id="home1">
 		<div class="container">
-			<div class="w3l_login">
-				<a href="#" data-toggle="modal" data-target="#modalLogin"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-			</div>
 			<div class="w3l_logo">
 				<h1>
 					<a href="index.html">LEGALFACT
@@ -187,12 +254,15 @@
 										<h4>Usuarios</h4>
 									</div>
 									<div class="col-md-4 margin text-right">
-										<button class="btn-primary">Crear Usuario</button>
+										<button data-toggle="modal" data-target="#modalUser" class="btn-primary">
+											<span class="fa fa-plus" aria-hidden="true"></span>
+											Crear Usuario
+										</button>
 									</div>
 								</div>
 								<div class="row margin">
 									<div class="col-md-12">
-										<table class="table">
+										<table class="table hide">
 											<thead>
 												<tr>
 													<th scope="col">#</th>
@@ -200,6 +270,13 @@
 													<th scope="col">Apellido</th>
 													<th scope="col">Correo</th>
 													<th>Acciones</th>
+												</tr>
+												<tr>
+													<th scope="col"></th>
+													<th scope="col"><input style="width: 100px" type="text"></th>
+													<th scope="col"><input style="width: 100px" type="text"></th>
+													<th scope="col"><input style="width: 100px" type="text"></th>
+													<th scope="col"></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -241,6 +318,7 @@
 												</tr>
 											</tbody>
 										</table>
+										<table id="table"></table>
 									</div>
 								</div>
 							</div>
@@ -334,6 +412,13 @@
 	</div>
 	<!-- //footer -->
 
+	<!-- js -->
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap-table.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap-3.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap-table-es-CL.js"></script>
+	<!-- //js -->
+
 	<!-- cart-js -->
 	<script src="../../js/minicart.js"></script>
 	<script>
@@ -347,6 +432,67 @@
 			}
 		});
 	</script>  
-	<!-- //cart-js -->   
+	<!-- //cart-js -->
+
+	<!-- script -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// start-smooth-scrolling
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+			
+			// carga tabla
+			$('#table').bootstrapTable({
+				search: true,
+				locale:'es-CL',
+				refresh: true,
+				columns: [
+					{
+						field: 'id',
+						title: 'N°'
+					},
+					{
+						field: 'name',
+						title: 'Nombre Apellido'
+					}, 
+					{
+						field: 'email',
+						title: 'Correo'
+					}, 
+					{
+						field: 'options',
+						title: 'Opciones'
+					}
+				],
+				data: [
+					{
+						id: 1,
+						name: 'Pedro Perez',
+						email: 'pperez@gmail.com'
+					}, 
+					{
+						id: 2,
+						name: 'Jose Romero',
+						email: 'jromero@gmail.com'
+					}, 
+					{
+						id: 3,
+						name: 'Juan Ramirez',
+						email: 'jramirez@gmail.com'
+					},
+					{
+						id: 4,
+						name: 'Pablo Zambrano',
+						email: 'pzambrano@gmail.com'
+					}
+				]
+			});
+
+		});
+	</script>
+	<!-- //script -->
+
 </body>
 </html>

@@ -1485,7 +1485,7 @@ h2.resp-accordion {
 	font-size:14px;
 }
 .register input[type="password"],.register input[type="email"]{
-	margin:1em 0 0;
+	/* margin:1em 0 0; */
 }
 div#horizontalTab ul {
     padding-bottom: 1.5em;
@@ -1506,6 +1506,42 @@ div#horizontalTab ul {
 }
 .register input[type="submit"]:hover{
 	background:#3c43a4;
+}
+
+.btn-submit {
+	outline:none;
+	border:none;
+	background:#0d1255;
+	padding:10px 0;
+	color:#fff;
+	width:40%;
+	font-size:0.8em;
+	text-transform:uppercase;
+	margin:2em 0 0;
+	font-weight: bold;
+}
+.btn-submit:hover{
+	background:#3c43a4;
+	color:#fff;
+	font-weight: bold;
+}
+
+.btn-cancel {
+	outline:none;
+	border:none;
+	background:#ff5063;
+	padding:10px 0;
+	color:#fff;
+	width:40%;
+	font-size:0.8em;
+	text-transform:uppercase;
+	margin:2em 0 0;
+	font-weight: bold;
+}
+.btn-cancel:hover{
+	background:#f78794;
+	color:#fff;
+	font-weight: bold;
 }
 
 .form input[type="text"],.form input[type="email"],.form input[type="password"]{
