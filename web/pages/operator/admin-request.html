@@ -11,36 +11,20 @@
 		function hideURLbar(){ window.scrollTo(0,1); }
 	</script>
 	<!-- //for-mobile-apps -->
-	<!-- Custom Theme files -->
+	<!-- custom css files -->
 	<link href="../../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="../../css/style.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="../../css/fasthover.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="../../css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
-	<!-- //Custom Theme files -->
-	<!-- font-awesome icons -->
-	<link href="../../css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome icons -->
-	<!-- js -->
-	<script src="../../js/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/jquery.countdown.css" />
-	<!-- //js -->
+	<link href="../../css/font-awesome.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="../../css/jquery.countdown.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="../../css/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
+	<!-- //custom css files -->
 	<!-- web fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'/>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'/>
 	<!-- //web fonts -->
-	<!-- start-smooth-scrolling -->
-	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-			});
-		});
-	</script>
-	<!-- //end-smooth-scrolling -->
-	<!-- for bootstrap working -->
-	<script type="text/javascript" src="../../js/bootstrap-3.1.1.min.js"></script>
-	<!-- //for bootstrap working -->
+
 </head> 
 <body>
 	<!-- navegation login -->
@@ -62,9 +46,6 @@
 	<!-- header -->
 	<div class="header" id="home1">
 		<div class="container">
-			<div class="w3l_login">
-				<a href="#" data-toggle="modal" data-target="#modalLogin"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-			</div>
 			<div class="w3l_logo">
 				<h1>
 					<a href="index.html">LEGALFACT
@@ -72,7 +53,7 @@
 					</a>
 				</h1>
 			</div>
-			<div class="cart cart box_1"> 
+			<div class="cart cart box_1 hide"> 
 				<form action="#" method="post" class="last"> 
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="display" value="1" />
@@ -187,66 +168,15 @@
 										<h4>Solicitudes</h4>
 									</div>
 									<div class="col-md-4 margin text-right">
-										<button class="btn-primary">Generar Reporte</button>
+										<button class="btn-submit">
+											<span class="fa fa-print" aria-hidden="true"></span>
+											Generar Reporte
+										</button>
 									</div>
 								</div>
 								<div class="row margin">
 									<div class="col-md-12">
-										<table class="table">
-											<thead>
-												<tr>
-													<th scope="col">#</th>
-													<th scope="col">Tipo</th>
-													<th scope="col">Estado</th>
-													<th scope="col">Comentario</th>
-													<th>Acciones</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<th scope="row">1</th>
-													<td>Tipo 1</td>
-													<td>En Espera</td>
-													<td>Comentario...</td>
-													<td>
-														<select name="option" id="option">
-															<option>Seleccione</option>
-															<option>Ver Detalle</option>
-															<option>Cambiar Estado</option>
-															<option>Revocar</option>
-														</select>
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">2</th>
-													<td>Tipo 2</td>
-													<td>En Espera</td>
-													<td>Comentario...</td>
-													<td>
-														<select name="option" id="option">
-															<option>Seleccione</option>
-															<option>Ver Detalle</option>
-															<option>Cambiar Estado</option>
-															<option>Revocar</option>
-														</select>
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">3</th>
-													<td>Tipo 3</td>
-													<td>En Espera</td>
-													<td>Comentario...</td>
-													<td>
-														<select name="option" id="option">
-															<option>Seleccione</option>
-															<option>Ver Detalle</option>
-															<option>Cambiar Estado</option>
-															<option>Revocar</option>
-														</select>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+										<table id="table"></table>
 									</div>
 								</div>
 							</div>
@@ -340,6 +270,13 @@
 	</div>
 	<!-- //footer -->
 
+	<!-- js -->
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap-table.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap-3.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap-table-es-CL.js"></script>
+	<!-- //js -->
+
 	<!-- cart-js -->
 	<script src="../../js/minicart.js"></script>
 	<script>
@@ -353,6 +290,74 @@
 			}
 		});
 	</script>  
-	<!-- //cart-js -->   
+	<!-- //cart-js -->
+
+	<!-- script -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// start-smooth-scrolling
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+			
+			// carga tabla
+			$('#table').bootstrapTable({
+				search: true,
+				locale:'es-CL',
+				refresh: true,
+				columns: [
+					{
+						field: 'id',
+						title: 'N°'
+					},
+					{
+						field: 'name',
+						title: 'Nombre Apellido'
+					}, 
+					{
+						field: 'email',
+						title: 'Correo'
+					}, 
+					{
+						field: 'options',
+						title: 'Opciones'
+					}
+				],
+				data: [
+					{
+						id: 1,
+						name: 'Pedro Perez',
+						email: 'pperez@gmail.com'
+					}, 
+					{
+						id: 2,
+						name: 'Jose Romero',
+						email: 'jromero@gmail.com'
+					}, 
+					{
+						id: 3,
+						name: 'Juan Ramirez',
+						email: 'jramirez@gmail.com'
+					},
+					{
+						id: 4,
+						name: 'Pablo Zambrano',
+						email: 'pzambrano@gmail.com'
+					}
+				]
+			});
+
+			// submit form
+			$('#formUser').submit((e) => {
+				e.preventDefault();
+  			console.log($('#formUser').serialize());
+				alert('Registro usuario');
+			});
+
+		});
+	</script>
+	<!-- //script -->
+
 </body>
 </html>

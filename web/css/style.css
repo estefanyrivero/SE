@@ -1,7 +1,7 @@
 html, body{
     font-size: 100%;
 	background:	#fff;
-	/* font-family:'Open Sans', sans-serif; */
+	font-family:'Open Sans', sans-serif;
 }
 p{
 	margin:0;
@@ -1509,15 +1509,15 @@ div#horizontalTab ul {
 }
 
 .btn-submit {
-	outline:none;
-	border:none;
-	background:#0d1255;
-	padding:10px 0;
-	color:#fff;
-	width:40%;
-	font-size:0.8em;
-	text-transform:uppercase;
-	margin:2em 0 0;
+	outline: none;
+	border: none;
+	background: #0d1255;
+	padding: 10px 0;
+	color: #fff;
+	width: 150px;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	margin: 2em 0 0;
 	font-weight: bold;
 }
 .btn-submit:hover{
@@ -1532,7 +1532,7 @@ div#horizontalTab ul {
 	background:#ff5063;
 	padding:10px 0;
 	color:#fff;
-	width:40%;
+	width:150px;
 	font-size:0.8em;
 	text-transform:uppercase;
 	margin:2em 0 0;
@@ -2164,8 +2164,14 @@ section#tables  p {
 	padding: 16px;
 	background-color: #ffffff;
 }
+.table tr th {
+	color: #ffffff !important;
+	background: #3c43a4;
+}
+
 .table td, .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-	padding: 15px!important;
+	/* padding: 15px!important; */
+	/* color: #fff; */
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
 	font-size: 0.9em;
